@@ -23,26 +23,18 @@
 \usepackage{parskip}
 \usepackage{epigraph}
 \usepackage{ulem}
+\usepackage{rotating}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
 \usepackage{wrapfig}
-\fancyhead[C]{\roboto\Large\color{black}\@title}
-\fancyhead[L]{\roboto\large\color{gramdark}{\@author}}
-\fancyhead[R]{\roboto\large\color{gramdark}{\@date}}
-\fancyfoot[C]{\leftmark\roboto}
-\fancyfoot[R]{\roboto\Large\thepage}
+\fancyhead[C]{\monts\Large\color{black}\@title}
+\fancyhead[L]{\monts\large\color{gramdark}{\@author}}
+\fancyhead[R]{\monts\large\color{gramdark}{\@date}}
+\fancyfoot[C]{\leftmark\monts}
+\fancyfoot[R]{\monts\Large\thepage}
 \renewcommand{\headrulewidth}{1pt}
-\renewcommand{\footrulewidth}{0.5pt}
-\usepackage{url}
-\usepackage{verbatim}
-\usepackage{tikzlings}
-\usepackage{tikzducks}
-\usepackage{tgpagella}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.15}
-\usepackage{mathrsfs}
-\usetikzlibrary{arrows}
+\renewcommand{\footrulewidth}{0pt}
 
 \usepackage{relsize} 
 
@@ -86,30 +78,54 @@
 %   %   %   %   %   %   %   %   %   %   %   %   %   %   %
 %%%%%%%%%%%%%%%%%%%%%    Font   %%%%%%%%%%%%%%%%%%%%%
 %   %   %   %   %   %   %   %   %   %   %   %   %   %   %
-\usepackage{bitter}
-
-\usepackage{roboto}
-\usepackage{cabin}
+%\usepackage{bitter}
+%\usepackage{roboto}
+%\usepackage{cabin}
 \newcommand{\monts}{\fontfamily{Montserrat-TOsF}\selectfont}
-\usepackage{bookman}
-\newcommand{\bmfont}{\fontfamily{bookman}\selectfont}
-\usepackage{GoMono}
+\newcommand{\bitter}{\fontfamily{bitter}\selectfont}
+\newcommand{\roboto}{\fontfamily{roboto}\selectfont}
+\newcommand{\cabin}{\fontfamily{cabin}\selectfont}
+\newcommand{\texgyrebonum}{\fontfamily{texgyrebonum}\selectfont}
+\newcommand{\LibreBodoni}{\fontfamily{LibreBodoni}\selectfont}
+
+%\usepackage{bookman}
+\newcommand{\bookman}{\fontfamily{bookman}\selectfont}
+
+%\usepackage{GoMono}
+\newcommand{\GoMono}{\fontfamily{GoMono}\selectfont}
+
 %Go Mono Font
 %\usepackage{merriweather} 
-\usepackage{merriweather}
+\newcommand{\merriweather}{\fontfamily{merriweather}\selectfont}
+
+%\usepackage{merriweather}
 
 %%%%%%%%%%%%%%%%%%%% Section Formatting %%%%%%%%%%%%%%
-\usepackage{titlesec}
+%\usepackage{titlesec}
 
-\newlength\titleindent
-\setlength\titleindent{1cm}
+%\newlength\titleindent
+%\setlength\titleindent{1cm}
 
-\titleformat{\section}
-  {\bitter\huge\bfseries}{\thesection.\enspace}{0em}{}
-\titleformat{\subsection}
-  {\bitter\Large\bfseries}{\thesubsection.\enspace}{0em}{}
-\titleformat{\subsubsection}
-  {\bitter\large\bfseries}{\thesubsubsection.\enspace}{0em}{}
+
+\renewcommand*{\sectionformat}%
+				{\bitter\fontsize{30}{36}\bfseries\boxed{\thesection{.}}\enskip}
+			\renewcommand*{\subsectionformat}%
+				{\bitter\fontsize{25}{30}\bfseries\boxed{\thesubsection{.}}\enskip}
+			\renewcommand*{\subsubsectionformat}%
+				{\bitter\fontsize{25}{30}\bfseries\boxed{\thesubsubsection{.}}\enskip}
+
+
+
+%\titleformat{\section}
+%  {\LibreBodoni\huge\bfseries}{\thesection.\enspace}{0em}{}
+%\titleformat{\subsection}
+%  {\LibreBodoni\Large\bfseries}{\thesubsection.\enspace}{0em}{}
+%\titleformat{\subsubsection}
+%  {\LibreBodoni\large\bfseries}{\thesubsubsection.\enspace}{0em}{}
+
+
+
+
 
 
 %%%%%%%%%% Title and Author %%%%%%%%%%%%%%%%%
@@ -122,11 +138,10 @@
 \renewcommand{\@maketitle}{%
   \parindent=0pt% don't indent paragraphs in the title block
   \centering
-  {\huge \roboto \bfseries{\@title}}
+  {\huge \monts \bfseries{\@title}}
   \HRule\par%
-  \Large\roboto{\@author \hfill \@date}
+  \Large\monts{\@author \hfill \@date}
   \par
-  \vspace{2cm}
   }
 \makeatother% resets the meaning of the at-sign (@)
 
@@ -138,7 +153,7 @@
  \renewcommand{\labelitemiii}{$\faAngleRight$}
  \renewcommand{\labelitemiv}{$\faAngleRight$}
  
- \newcommand{\vocab}[1]{\textbf{\large\color{grammagenta}\underline{#1}}}
+ \newcommand{\vocab}[1]{\textbf{\large\color{grammagenta!80!white}\underline{#1}}}
 \definecolor{radicalred}{HTML}{FF355E}
 
 
@@ -165,14 +180,14 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%     TOC     %%%%%%%%%%%%%%%%%%%%
 
 
-%\protacted\def\tableofcontents{\begin{toc}\merriweather\csname     
-%               @starttoc\endcsname{toc}\end{toc}}
 
-%\renewcommand{\tableofcontents}{\begin{toc}\@starttoc\end{toc}}
-%\renewcommand{\contentsname}{}
+\protected\def\tableofcontents{\begin{toc}\texgyrebonum\csname@starttoc\endcsname{toc}\end{toc}}
 
+
+\renewcommand{\contentsname}{}
 
 %%%%%%%%%%%%%%%%%%%%%
 %   %   %   %   %   %   %   %   %   %   %   %   %   %   %         %%%%%%%%%%%%%%%%%%%%%    Boxes   %%%%%%%%%%%%%%%%%%%%
@@ -186,11 +201,11 @@
 %%%%%%%%%%%%            theorem              %%%%%%%%%%%%        
 \newtcolorbox[auto counter, number within=section]{theorem}[2][]{%
         enhanced,
-        interior style={top color=gramlightblue!10!white,
-                        middle color=gramlightblue!15!white,
-                        bottom color=gramlightblue!40!white
+        interior style={middle color=gramlightblue!60!white,
+                        right color=gramlightblue!30!white,
+                        left color=gramlightblue!30!white
         },
-        colframe=gramlightblue!70!white,
+        colframe=gramlightblue!70!black,
         colbacktitle=gramlightblue!75!white,
         top=12mm,
         bottom=12mm,
@@ -212,10 +227,7 @@
 %%%%%%%%%%%%%% Example %%%%%%%%%%%%%%%%%%%%%%%%
 \newtcolorbox[auto counter, number within=section]{example}[2][]{%
         enhanced,
-    interior style={top color=grampink!10!white,
-                        middle color=grampink!15!white,
-                        bottom color=grampink!40!white
-        },
+        colback=grampink!15!white,
         colframe=grampink,
         colbacktitle=grampink!75!white,
         top=12mm,
@@ -239,9 +251,9 @@
 %%%%%%%%%%%%%% Definition %%%%%%%%%%%%%%%%%%%%%%%%
 \newtcolorbox[auto counter, number within=section]{definition}[2][]{%
         enhanced,
-        interior style={top color=gramsky!10!white,
-                        middle color=gramsky!15!white,
-                        bottom color=gramsky!40!white
+        interior style={middle color=gramsky!60!white,
+                        right color=gramsky!30!white,
+                        left color=gramsky!30!white
         },
         colframe=gramsky!70!black,
         colbacktitle=gramsky!75!white,
@@ -313,7 +325,7 @@
 
 %%%%%%%%%%%%%%%%%  Exercise Box   %%%%%%%%%%%%%%%%%%%
 \newtcolorbox[auto counter,number within=section]{exercise}[1][]{
-  enhanced jigsaw,colback=gramorange!5!white,colframe=gramorange,coltitle=gramorange,
+  enhanced jigsaw,colback=gramlime!5!white,colframe=gramlime!80!black,coltitle=gramlime!80!black,
   fonttitle=\bfseries\monts,
   sharp corners,
   detach title,
@@ -357,7 +369,7 @@ colbacktitle=gramyellow!10!white,
 %%%%%%%%%%%   Solution    %%%%%%%%%%%%%
 
 \newtcolorbox{solution}{%
-empty,title={solution},attach boxed title to top left,
+empty,title={Solution},attach boxed title to top left,
 boxed title style={empty,size=minimal,toprule=2pt,top=4pt,
 overlay={\draw[gramblue,line width=2pt]
 ([yshift=-1pt]frame.north west)--([yshift=-1pt]frame.north east);}},
@@ -375,17 +387,10 @@ overlay middle={\draw[gramblue,line width=1pt] ([xshift=-0.5pt]frame.north east)
 overlay last={\draw[gramblue,line width=1pt] ([xshift=-0.5pt]frame.north east)
 --([xshift=-0.5pt]frame.south east)--(frame.south west);},%
 }
-
-
-
-
-%%%%%%%%%%%%%   Proof    %%%%%%%%%%%%
-
-
 %%%%%%%%%%%%%    Table Of Contents   %%%%%%%%%%%%%%
 
 \newtcolorbox{toc}{colback=myblue!5!white,
-            colframe=myblue,fonttitle=\merriweather\Large\color{black},
+            colframe=myblue,fonttitle=\texgyrebonum\Large\color{black},
             colbacktitle=myblue!15!white,enhanced,
             arc=0.3mm,
             breakable,
@@ -407,11 +412,6 @@ interior code={ \path[tcb fill interior] ([xshift=-2mm]interior.west)
 title=Table Of Contents}
 
 
-%%%%%%%%%%%%%%%%     TOC     %%%%%%%%%%%%%%%%%%%%
 
-
-\protected\def\tableofcontents{\begin{toc}\merriweather\csname   @starttoc\endcsname{toc}\end{toc}}
-
-\renewcommand{\contentsname}{}
 
 
