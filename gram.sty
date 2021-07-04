@@ -1,5 +1,4 @@
- %   %   %   %   %   %   %   %   %   %   %   %   %   %   %   %   %         
- %%%%%%%%%%%%%%%%%%%%%    Random Packages   %%%%%%%%%%%%%%%%%%%%%%
+ %   %   %   %   %   %   %   %   %   %   %   %   %   %   %   %   %         %%%%%%%%%%%%%%%%%%%%%    Random Packages   %%%%%%%%%%%%%%%%%%%%%%
 %   %   %   %   %   %   %   %   %   %   %   %   %   %   %   %   %
 
 \ProvidesPackage{gram}
@@ -31,8 +30,8 @@
 \fancyhead[C]{\roboto\Large\color{black}\@title}
 \fancyhead[L]{\roboto\large\color{gramdark}{\@author}}
 \fancyhead[R]{\roboto\large\color{gramdark}{\@date}}
-\fancyfoot[C]{\leftmark\monts}
-\fancyfoot[R]{\monts\Large\thepage}
+\fancyfoot[C]{\leftmark\roboto}
+\fancyfoot[R]{\roboto\Large\thepage}
 \renewcommand{\headrulewidth}{1pt}
 \renewcommand{\footrulewidth}{0.5pt}
 \usepackage{url}
@@ -47,8 +46,7 @@
 
 \usepackage{relsize} 
 
-%   %   %   %   %   %   %   %   %   %   %   %   %   %   %         
-%%%%%%%%%%%%%%%%%%%%%    Colors   %%%%%%%%%%%%%%%%%%%%%%%
+%   %   %   %   %   %   %   %   %   %   %   %   %   %   %         %%%%%%%%%%%%%%%%%%%%%    Colors   %%%%%%%%%%%%%%%%%%%%%%%
 %   %   %   %   %   %   %   %   %   %   %   %   %   %   %
 \usepackage{color}
 \usepackage{xcolor}
@@ -140,7 +138,7 @@
  \renewcommand{\labelitemiii}{$\faAngleRight$}
  \renewcommand{\labelitemiv}{$\faAngleRight$}
  
- \newcommand{\vocab}[1]{\textbf{\large\color{gramred}\underline{#1}}}
+ \newcommand{\vocab}[1]{\textbf{\large\color{grammagenta}\underline{#1}}}
 \definecolor{radicalred}{HTML}{FF355E}
 
 
@@ -315,7 +313,7 @@
 
 %%%%%%%%%%%%%%%%%  Exercise Box   %%%%%%%%%%%%%%%%%%%
 \newtcolorbox[auto counter,number within=section]{exercise}[1][]{
-  enhanced jigsaw,colback=gramlime!5!white,colframe=gramlime!80!black,coltitle=gramlime!80!black,
+  enhanced jigsaw,colback=gramorange!5!white,colframe=gramorange,coltitle=gramorange,
   fonttitle=\bfseries\monts,
   sharp corners,
   detach title,
