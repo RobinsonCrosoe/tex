@@ -28,13 +28,22 @@
 \pagestyle{fancy}
 \fancyhf{}
 \usepackage{wrapfig}
-\fancyhead[C]{\monts\Large\color{black}\@title}
-\fancyhead[L]{\monts\large\color{gramdark}{\@author}}
-\fancyhead[R]{\monts\large\color{gramdark}{\@date}}
+\fancyhead[C]{\roboto\Large\color{black}\@title}
+\fancyhead[L]{\roboto\large\color{gramdark}{\@author}}
+\fancyhead[R]{\roboto\large\color{gramdark}{\@date}}
 \fancyfoot[C]{\leftmark\monts}
 \fancyfoot[R]{\monts\Large\thepage}
 \renewcommand{\headrulewidth}{1pt}
-\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{tikzlings}
+\usepackage{tikzducks}
+\usepackage{tgpagella}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usetikzlibrary{arrows}
 
 \usepackage{relsize} 
 
@@ -115,10 +124,11 @@
 \renewcommand{\@maketitle}{%
   \parindent=0pt% don't indent paragraphs in the title block
   \centering
-  {\huge \monts \bfseries{\@title}}
+  {\huge \roboto \bfseries{\@title}}
   \HRule\par%
-  \Large\monts{\@author \hfill \@date}
+  \Large\roboto{\@author \hfill \@date}
   \par
+  \vspace{2cm}
   }
 \makeatother% resets the meaning of the at-sign (@)
 
@@ -167,12 +177,8 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%
-
-
-%   %   %   %   %   %   %   %   %   %   %   %   %   %   %         
-%%%%%%%%%%%%%%%%%%%%%    Boxes   %%%%%%%%%%%%%%%%%%%%
-%   %   %   %   %   %   %   %   %   %   %   %   %   %   
-
+%   %   %   %   %   %   %   %   %   %   %   %   %   %   %         %%%%%%%%%%%%%%%%%%%%%    Boxes   %%%%%%%%%%%%%%%%%%%%
+%   %   %   %   %   %   %   %   %   %   %   %   %   %   %
 \usepackage[many]{tcolorbox}
 \tcbuselibrary{theorems}
 \tcbuselibrary{skins,xparse,minted,listings}
@@ -182,11 +188,11 @@
 %%%%%%%%%%%%            theorem              %%%%%%%%%%%%        
 \newtcolorbox[auto counter, number within=section]{theorem}[2][]{%
         enhanced,
-        interior style={middle color=gramlightblue!60!white,
-                        right color=gramlightblue!30!white,
-                        left color=gramlightblue!30!white
+        interior style={top color=gramlightblue!10!white,
+                        middle color=gramlightblue!15!white,
+                        bottom color=gramlightblue!40!white
         },
-        colframe=gramlightblue!70!black,
+        colframe=gramlightblue!70!white,
         colbacktitle=gramlightblue!75!white,
         top=12mm,
         bottom=12mm,
@@ -205,14 +211,13 @@
         colback=gramlightblue!5!white},
         fonttitle=\monts\bfseries\color{gramlightblue!50!black},
         sharp corners}
-				
-				
 %%%%%%%%%%%%%% Example %%%%%%%%%%%%%%%%%%%%%%%%
-
-
 \newtcolorbox[auto counter, number within=section]{example}[2][]{%
         enhanced,
-        colback=grampink!15!white,
+    interior style={top color=grampink!10!white,
+                        middle color=grampink!15!white,
+                        bottom color=grampink!40!white
+        },
         colframe=grampink,
         colbacktitle=grampink!75!white,
         top=12mm,
@@ -236,9 +241,9 @@
 %%%%%%%%%%%%%% Definition %%%%%%%%%%%%%%%%%%%%%%%%
 \newtcolorbox[auto counter, number within=section]{definition}[2][]{%
         enhanced,
-        interior style={middle color=gramsky!60!white,
-                        right color=gramsky!30!white,
-                        left color=gramsky!30!white
+        interior style={top color=gramsky!10!white,
+                        middle color=gramsky!15!white,
+                        bottom color=gramsky!40!white
         },
         colframe=gramsky!70!black,
         colbacktitle=gramsky!75!white,
@@ -309,8 +314,6 @@
 }
 
 %%%%%%%%%%%%%%%%%  Exercise Box   %%%%%%%%%%%%%%%%%%%
-
-
 \newtcolorbox[auto counter,number within=section]{exercise}[1][]{
   enhanced jigsaw,colback=gramlime!5!white,colframe=gramlime!80!black,coltitle=gramlime!80!black,
   fonttitle=\bfseries\monts,
@@ -325,8 +328,6 @@
 }
 
 %%%%%%%%%%%%%%%%%  Remark Box   %%%%%%%%%%%%%%%%%%%
-
-
 \newtcolorbox[auto counter,number within=section]{remark}[1][]{
   enhanced jigsaw,colback=grampeach!5!white,colframe=grampeach,coltitle=grampeach,
   fonttitle=\bfseries\monts,
@@ -340,8 +341,6 @@
   code={\ifdefempty{\tcbtitletext}{}{\tcbset{before upper={\tcbtitle\par\medskip}}}},
 }
 %%%%%%%%%%%% Problem %%%%%%%%%%%%%%%%%%
-
-
 \newcounter{problem}
 \newtcolorbox[use counter=problem]{problem}[1]{
 enhanced,
@@ -360,7 +359,7 @@ colbacktitle=gramyellow!10!white,
 %%%%%%%%%%%   Solution    %%%%%%%%%%%%%
 
 \newtcolorbox{solution}{%
-empty,title={Solution},attach boxed title to top left,
+empty,title={solution},attach boxed title to top left,
 boxed title style={empty,size=minimal,toprule=2pt,top=4pt,
 overlay={\draw[gramblue,line width=2pt]
 ([yshift=-1pt]frame.north west)--([yshift=-1pt]frame.north east);}},
@@ -378,6 +377,13 @@ overlay middle={\draw[gramblue,line width=1pt] ([xshift=-0.5pt]frame.north east)
 overlay last={\draw[gramblue,line width=1pt] ([xshift=-0.5pt]frame.north east)
 --([xshift=-0.5pt]frame.south east)--(frame.south west);},%
 }
+
+
+
+
+%%%%%%%%%%%%%   Proof    %%%%%%%%%%%%
+
+
 %%%%%%%%%%%%%    Table Of Contents   %%%%%%%%%%%%%%
 
 \newtcolorbox{toc}{colback=myblue!5!white,
