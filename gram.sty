@@ -1,4 +1,5 @@
- %   %   %   %   %   %   %   %   %   %   %   %   %   %   %   %   %         %%%%%%%%%%%%%%%%%%%%%    Random Packages   %%%%%%%%%%%%%%%%%%%%%%
+ %   %   %   %   %   %   %   %   %   %   %   %   %   %   %   %   %        
+ %%%%%%%%%%%%%%%%%%%%%    Random Packages   %%%%%%%%%%%%%%%%%%%%%%
 %   %   %   %   %   %   %   %   %   %   %   %   %   %   %   %   %
 
 \ProvidesPackage{gram}
@@ -31,14 +32,15 @@
 \fancyhead[C]{\monts\Large\color{black}\@title}
 \fancyhead[L]{\monts\large\color{gramdark}{\@author}}
 \fancyhead[R]{\monts\large\color{gramdark}{\@date}}
-\fancyfoot[C]{\leftmark\monts}
+
 \fancyfoot[R]{\monts\Large\thepage}
 \renewcommand{\headrulewidth}{1pt}
 \renewcommand{\footrulewidth}{0pt}
 
 \usepackage{relsize} 
 
-%   %   %   %   %   %   %   %   %   %   %   %   %   %   %         %%%%%%%%%%%%%%%%%%%%%    Colors   %%%%%%%%%%%%%%%%%%%%%%%
+%   %   %   %   %   %   %   %   %   %   %   %   %   %   %         
+%%%%%%%%%%%%%%%%%%%%%    Colors   %%%%%%%%%%%%%%%%%%%%%%%
 %   %   %   %   %   %   %   %   %   %   %   %   %   %   %
 \usepackage{color}
 \usepackage{xcolor}
@@ -101,31 +103,19 @@
 %\usepackage{merriweather}
 
 %%%%%%%%%%%%%%%%%%%% Section Formatting %%%%%%%%%%%%%%
-%\usepackage{titlesec}
+\usepackage{mwe}
 
-%\newlength\titleindent
-%\setlength\titleindent{1cm}
-
-
-\renewcommand*{\sectionformat}%
-				{\bitter\fontsize{30}{36}\bfseries\boxed{\thesection{.}}\enskip}
-			\renewcommand*{\subsectionformat}%
-				{\bitter\fontsize{25}{30}\bfseries\boxed{\thesubsection{.}}\enskip}
-			\renewcommand*{\subsubsectionformat}%
-				{\bitter\fontsize{25}{30}\bfseries\boxed{\thesubsubsection{.}}\enskip}
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {3pt}%
+                                   {3pt}%
+                                   {\Large\normalfont\bfseries}}
+\makeatother
 
 
 
-%\titleformat{\section}
-%  {\LibreBodoni\huge\bfseries}{\thesection.\enspace}{0em}{}
-%\titleformat{\subsection}
-%  {\LibreBodoni\Large\bfseries}{\thesubsection.\enspace}{0em}{}
-%\titleformat{\subsubsection}
-%  {\LibreBodoni\large\bfseries}{\thesubsubsection.\enspace}{0em}{}
-
-
-
-
+\renewcommand\thesection{\S\arabic{section}.}
+\renewcommand\thesubsection{\thesection\arabic{subsection}.}
+\renewcommand\thesubsubsection{\thesubsection\arabic{subsubsection}.}
 
 
 %%%%%%%%%% Title and Author %%%%%%%%%%%%%%%%%
